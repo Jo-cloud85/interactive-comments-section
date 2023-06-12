@@ -227,7 +227,7 @@ function createUserToResponseElement(response) {
                 <source srcset="./src/images/avatars/image-${currentUsername}.webp" type="image/webp">
                 <img class="user-avatar current" src="./src/images/avatars/image-${currentUsername}.png" alt="User Avatar">
             </picture>  
-            <textarea type="text" class="input-box" id="${response}-input" placeholder="Add a ${response}..." cols="30" rows="3"></textarea>
+            <textarea class="input-box" id="${response}-input" placeholder="Add a ${response}..." cols="30" rows="3"></textarea>
             <button type="submit" class="send-button" id="${response}-send-button" aria-label="Submit ${response}">${sendOrReplyButtonText(response)}</button>
         </form>
     `;
