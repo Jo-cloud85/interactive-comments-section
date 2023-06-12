@@ -694,10 +694,10 @@ function getStoredData() {
         return {
             currentUser: {
                 image: {
-                    png: `./src/images/avatars/image-juliusomo.png`,
-                    webp: `./src/images/avatars/image-juliusomo.webp`
+                    png: './src/images/avatars/image-juliusomo.png',
+                    webp: './src/images/avatars/image-juliusomo.webp'
                 },
-                username: `${currentUsername}`
+                username: 'juliusomo'
             },
             comments: []
         };
