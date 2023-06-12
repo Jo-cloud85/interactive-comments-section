@@ -3,6 +3,9 @@ import './menu_avatar.js';
 const allComments = document.querySelector('.all-comments-container');
 const deleteCommentContainer = document.querySelector('.delete-comment-container');
 const usersUnderMenu = document.querySelector('.menu');
+let lastId = 4;
+let data = getStoredData();
+let currentUsername = data.currentUser.username;
 
 
 // Fetch default data from the local 'data.json' file
@@ -13,11 +16,6 @@ const loadComments = async() => {
     saveDataToLocalStorage(commentData);
     renderComments(commentData.comments);
 };
-
-
-let lastId = 4;
-let data = getStoredData();
-let currentUsername = data.currentUser.username;
 
 
 // Attach event listener to choose current user
@@ -693,16 +691,16 @@ function getStoredData() {
     if (storedData) {
       return JSON.parse(storedData);
     } else {
-      return {
-        currentUser: {
-          image: {
-            png: `./src/images/avatars/image-${currentUsername}.png`,
-            webp: `./src/images/avatars/image-${currentUsername}.webp`
-          },
-          username: `${currentUsername}`
-        },
-        comments: []
-      };
+        return {
+            currentUser: {
+                image: {
+                    png: `./src/images/avatars/image-juliusomo.png`,
+                    webp: `./src/images/avatars/image-juliusomo.webp`
+                },
+                username: `${currentUsername}`
+            },
+            comments: []
+        };
     }
 }
 
