@@ -17,7 +17,7 @@
     color: var(--gray3);
 
     /* Primary */
-    --moderate-blue: #5457b6;
+    --moderate-blue: hsl(238, 40%, 52%);
     --soft-red: hsl(358, 79%, 66%);
     --light-grayish-blue: hsl(239, 57%, 85%);
     --pale-red: hsl(357, 100%, 86%);
@@ -107,6 +107,7 @@ button:is(:hover):not(.send-button, #no-cancel-button, #yes-delete-button){
 /* Font styles*/
 .title {
     font-size: 1.5rem;
+    font-weight: 500;
 }
 
 .score {
@@ -210,6 +211,10 @@ button:is(:hover):not(.send-button, #no-cancel-button, #yes-delete-button){
     padding-bottom: 6px;
 }
 
+.moderate-blue {
+    filter: invert(41%) sepia(30%) saturate(1298%) hue-rotate(201deg) brightness(80%) contrast(89%) !important;
+}
+
 .comment-header {
     grid-area: comment-header;
     display: flex;
@@ -243,6 +248,7 @@ button:is(:hover):not(.send-button, #no-cancel-button, #yes-delete-button){
     align-items: center;
     gap: 0.5rem;
     font-size: var(--r14);
+    font-weight: 500;
 }
 
 .reply-icon-button,

@@ -605,21 +605,28 @@ allComments.addEventListener('click', e => {
         
         if (voter !== currentUsername) {
             if (userVotes.has(voter)) {
-                const previousVoteType = userVotes.get(voter);
+                const [previousVoteType, previousVoteCount] = userVotes.get(voter);
+                
                 if (previousVoteType !== voteType) {
-                    userVotes.set(voter, voteType); // allow changing the vote
+                    userVotes.set(voter, [voteType, previousVoteCount - 1]); // update voteType and reset voteCount to 0
+                    // Remove moderate-blue class from both upvote and downvote buttons
+                    scoreBoxElement.querySelectorAll('.vote-button').forEach(button => {
+                        button.classList.remove('moderate-blue');
+                    });
+                    // console.log(userVotes);
                     voteComment(scoreBoxElement, voteType);
-                } else {
-                    scoreBoxElement.appendChild(createPopUp('Cannot vote twice<br>of the same type.'));
-                    removePopUp(scoreBoxElement);
+                } else if (previousVoteType === voteType && previousVoteCount ===  0) {
+                    userVotes.set(voter, [voteType, 1]);
+                    voteButton.classList.add('moderate-blue');
+                    // console.log(userVotes);
+                    voteComment(scoreBoxElement, voteType);
                 }
             } else {
-                userVotes.set(voter, voteType); // first vote by the user
+                userVotes.set(voter, [voteType, 1]); // first vote by the user, initialize voteCount as 1
+                voteButton.classList.add('moderate-blue');
+                // console.log(userVotes);
                 voteComment(scoreBoxElement, voteType);
             }
-        } else {
-            scoreBoxElement.appendChild(createPopUp('Cannot vote on your own comment.'));
-            removePopUp(scoreBoxElement);
         }
     }
 });

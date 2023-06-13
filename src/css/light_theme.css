@@ -75,6 +75,16 @@ body.light-theme {
     filter: none;
 }
 
+.light-theme .delete-button {
+    color: var(--soft-red);
+}
+
+.light-theme .reply-icon-button,
+.light-theme .edit-button {
+    color: var(--moderate-blue);
+}
+
+
 /* Add container ------------------------------------------------- */
 .light-theme .add-form {
     background-color: var(--white);
